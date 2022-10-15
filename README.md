@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# ESBuild React App
 
 This project was bootstrapped with ESBuild configuration.
 
