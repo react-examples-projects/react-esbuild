@@ -1,0 +1,14 @@
+.img-post {
+  aspect-ratio: 16/9;
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1200px !important;
+}
+
+
+.opacity-gradient {
+  mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0.3)))
+}

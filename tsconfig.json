@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+    "outDir": "./public/static",
+    "baseUrl": "./",
+		"module": "CommonJS",
+		"moduleResolution": "Node",
+		"moduleDetection": "force",
+		"target": "ES3",
+		"allowSyntheticDefaultImports": true, // To provide backwards compatibility, Node.js allows you to import most CommonJS packages with a default import. This flag tells TypeScript that it's okay to use import on CommonJS modules.
+		"resolveJsonModule": true,
+		"jsx": "react",
+		"pretty": true,
+		"newLine": "lf",
+		"stripInternal": true,
+		"strict": true,
+		"noImplicitReturns": true,
+		"noImplicitOverride": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedIndexedAccess": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noEmitOnError": true,
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true
+	}
+}

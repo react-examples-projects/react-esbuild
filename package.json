@@ -1,0 +1,36 @@
+{
+  "name": "typescript-curso",
+  "version": "1.0.0",
+  "description": "typescript course from scratch",
+  "main": "index.js",
+  "scripts": {
+    "build-js": "node build.js",
+    "build-ts": "tsc -p .",
+    "start": "node build.js",
+    "dev": "npm run compile && npm start",
+    "compile": "npm run build-js && npm run build-ts"
+  },
+  "keywords": [
+    "ts",
+    "js",
+    "typescript",
+    "javascript"
+  ],
+  "author": "znareak",
+  "license": "ISC",
+  "dependencies": {
+    "@nextui-org/react": "^1.0.0-beta.9",
+    "@types/react-dom": "^18.0.6",
+    "axios": "^0.27.2",
+    "esbuild": "^0.14.48",
+    "inter-ui": "^3.19.3",
+    "open": "^8.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "servor": "^4.0.2",
+    "swr": "^1.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.3"
+  }
+}
