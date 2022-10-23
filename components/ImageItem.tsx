@@ -14,7 +14,8 @@ export default function ImageItem({ url, anime_name }: IProps) {
       <img
         className="d-block rounded-3 img-fluid w-100 img-post"
         src={skeleton}
-        alt="Default Image"
+        alt={anime_name}
+        title={anime_name}
         style={{ objectFit: "cover", maxHeight: "300px" }}
         ref={ref}
       />

@@ -14,8 +14,8 @@ type ImageListType = {
 export default function ImageList({ images }: ImageListType) {
   return (
     <Grid.Container gap={1} className="mt-3">
-      {images.map((img) => (
-        <Grid xs={12} sm={6} md={4} lg={3} xl={3}>
+      {images.map((img, index) => (
+        <Grid xs={12} sm={6} md={4} lg={3} xl={3} key={index}>
           <ImageItem {...img} />
         </Grid>
       ))}

@@ -53,7 +53,6 @@ export default function App() {
           <pre>{JSON.stringify(user, null, 3)}</pre>
         </code>
       )}
-      <img />
       <div className="d-flex align-items-center gap-2 mt-4">
         <Input
           onChange={onChangeSearch}

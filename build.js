@@ -5,11 +5,11 @@ const autoprefixer = require("autoprefixer");
 const postcssPresetEnv = require("postcss-preset-env");
 const { sassPlugin } = require("esbuild-sass-plugin");
 const { ESLint } = require("eslint");
-let codeResult = "";
 
 const eslint = () => ({
   name: "eslint",
   setup(build) {
+    let codeResult = "";
     const eslint = new ESLint({
       cwd: path.resolve(__dirname, "./"),
     });
@@ -73,22 +73,22 @@ const configCommon = {
   ],
 };
 
-build({
-  ...configCommon,
-  outfile: "public/static/node/bundle.js",
-  target: "node16",
-  platform: "node",
-}).catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+// build({
+//   ...configCommon,
+//   outfile: "public/static/node/bundle.js",
+//   target: "node16",
+//   platform: "node",
+// }).catch((err) => {
+//   console.error(err);
+//   process.exit(1);
+// });
 
 build({
   ...configCommon,
   outfile: "public/static/bundle.js",
   target: ["es2020", "chrome58", "firefox57", "node12", "safari11"],
   platform: "browser",
-  inject: [path.resolve(__dirname, "./react-shim.ts")], // auto import react per file
+  inject: [path.resolve(__dirname, "./react-shim.ts")],
   watch: true,
 })
   .then(async () => {
@@ -97,7 +97,7 @@ build({
 
     console.log("Initializing server...");
 
-    const { root, protocol, port, ips, url } = await servor({
+    const { protocol, port, ips, url } = await servor({
       root: "./public",
       fallback: "index.html",
       module: false,
