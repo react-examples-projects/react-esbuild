@@ -2,13 +2,13 @@ import React from "react";
 import ImageItem from "components/ImageItem";
 import { Grid } from "@nextui-org/react";
 
+interface ImageItem {
+  url: string;
+  anime_name: string;
+}
+
 type ImageListType = {
-  images: [
-    {
-      url: string;
-      anime_name: string;
-    }
-  ];
+  images: ImageItem[];
 };
 
 export default function ImageList({ images }: ImageListType) {

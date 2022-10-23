@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
+import {
+  Button,
+  Container,
+  Input,
+  Dropdown,
+  FormElement,
+} from "@nextui-org/react";
 import useImages from "hooks/useImages";
-import { Button, Container } from "@nextui-org/react";
 import ImageList from "components/ImageList";
 
 interface User {
@@ -12,6 +18,9 @@ interface User {
 }
 
 export default function App() {
+  const [search, setSearch] = useState<string>("");
+  const [category, setCategory] = useState<Selection>();
+
   const [user, setUser] = useState<User>();
   const { images, error } = useImages();
 
@@ -20,7 +29,11 @@ export default function App() {
       id: Date.now(),
       fullName: "Libardo Rengifooo",
       roles: [3004, 2001],
-    }); 
+    });
+  };
+
+  const onChangeSearch = (e: ChangeEvent<FormElement>) => {
+    setSearch(e.target.value);
   };
 
   if (error) {
@@ -35,9 +48,42 @@ export default function App() {
     <Container className="container">
       <p className="mb-3">Presiona el boton de abajo para consultar la api</p>
       <Button onClick={setAdminUser}>Set admin user</Button>
-      <code>
-        <pre>{JSON.stringify(user, null, 3)}</pre>
-      </code>
+      {user && (
+        <code>
+          <pre>{JSON.stringify(user, null, 3)}</pre>
+        </code>
+      )}
+      <img />
+      <div className="d-flex align-items-center gap-2 mt-4">
+        <Input
+          onChange={onChangeSearch}
+          placeholder="Buscar imágenes"
+          type="search"
+          width="100%"
+          bordered
+        />
+
+        <Dropdown>
+          <Dropdown.Button size="lg" auto ghost>
+            Categoría
+          </Dropdown.Button>
+          <Dropdown.Menu
+            aria-label="categorias"
+            //onSelectionChange={setCategory}
+          >
+            <Dropdown.Item key="husbando">husbando</Dropdown.Item>
+            <Dropdown.Item key="kitsune">kitsune</Dropdown.Item>
+            <Dropdown.Item key="neko">neko</Dropdown.Item>
+            <Dropdown.Item key="waifu">waifu</Dropdown.Item>
+            <Dropdown.Item key="baka">baka</Dropdown.Item>
+            <Dropdown.Item key="blush">blush</Dropdown.Item>
+            <Dropdown.Item key="bored">bored</Dropdown.Item>
+            <Dropdown.Item key="cry">cry</Dropdown.Item>
+            <Dropdown.Item key="cuddle">cuddle</Dropdown.Item>
+            <Dropdown.Item key="hug">hug</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+      </div>
 
       {images.length && <ImageList images={images} />}
     </Container>
